@@ -1,8 +1,5 @@
 package com.driver.models;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 
@@ -10,6 +7,8 @@ public class Image{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
+    @JoinColumn
+    @ManyToOne
     int blogid;
     String description;
     String dimension;

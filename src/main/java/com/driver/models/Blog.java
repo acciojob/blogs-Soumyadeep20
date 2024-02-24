@@ -1,7 +1,9 @@
 package com.driver.models;
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.ArrayList;
-import java.util.Date;
 
 @Entity
 
@@ -9,22 +11,10 @@ public class Blog{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
-    int userId;
+    int userid;
     String title;
     String content;
-    ArrayList<Integer> arr;
-    Date PubDate;
-
-    public Blog(){
-        arr=new ArrayList<>();
-    }
-    public Blog(Integer userId, String title, String content) {
-        this.content=content;
-        this.title=title;
-        this.userId=userId;
-        this.id=(int)Math.random();
-        this.arr=new ArrayList<>();
-    }
+    ArrayList<Integer>imageList;
 
     public int getId() {
         return id;
@@ -34,12 +24,12 @@ public class Blog{
         this.id = id;
     }
 
-    public int getUser() {
-        return userId;
+    public int getUserid() {
+        return userid;
     }
 
-    public void setUser(int userId) {
-        this.userId = userId;
+    public void setUserid(int userid) {
+        this.userid = userid;
     }
 
     public String getTitle() {
@@ -58,19 +48,18 @@ public class Blog{
         this.content = content;
     }
 
-    public Date getPubDate() {
-        return PubDate;
-    }
-
-    public void setPubDate(Date pubDate) {
-        PubDate = pubDate;
-    }
-
     public ArrayList<Integer> getImageList() {
-        return arr;
+        return imageList;
     }
 
     public void setImageList(int x) {
-        this.arr.add(x);
+        this.imageList.add(x);
+    }
+
+    public Blog(Integer userId, String title, String content) {
+        this.content=content;
+        this.title=title;
+        this.userid=userId;
+        imageList=new ArrayList<>();
     }
 }

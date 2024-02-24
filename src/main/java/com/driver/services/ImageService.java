@@ -19,7 +19,7 @@ public class ImageService {
         Image obj=new Image(blogId,description,dimensions);
         imageRepository2.save(obj);
         Blog x= blogRepository2.findById(blogId).orElse(null);
-        x.setImageList(blogId);
+        x.setImageList(obj.getId());
         blogRepository2.deleteById(blogId);
         blogRepository2.save(x);
         return obj;

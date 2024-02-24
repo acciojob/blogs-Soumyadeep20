@@ -13,9 +13,8 @@ public class User{
     String ussername;
     String password;
     ArrayList<Integer> arr;
-    public  User()
-    {
-        arr=new ArrayList<>();
+    public User(){
+
     }
     public User(String x, String y){
         id= (int)Math.random();
@@ -32,11 +31,11 @@ public class User{
         this.id = id;
     }
 
-    public String getUsername() {
+    public String getUssername() {
         return ussername;
     }
 
-    public void setUsername(String ussername) {
+    public void setUssername(String ussername) {
         this.ussername = ussername;
     }
 
