@@ -32,11 +32,11 @@ public class User{
         this.id = id;
     }
 
-    public String getUssername() {
+    public String getUsername() {
         return ussername;
     }
 
-    public void setUssername(String ussername) {
+    public void setUsername(String ussername) {
         this.ussername = ussername;
     }
 

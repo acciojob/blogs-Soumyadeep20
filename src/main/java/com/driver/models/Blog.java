@@ -1,6 +1,7 @@
 package com.driver.models;
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Entity
 
@@ -12,6 +13,7 @@ public class Blog{
     String title;
     String content;
     ArrayList<Integer> arr;
+    Date PubDate;
 
     public Blog(){
         arr=new ArrayList<>();
@@ -32,11 +34,11 @@ public class Blog{
         this.id = id;
     }
 
-    public int getUserId() {
+    public int getUser() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUser(int userId) {
         this.userId = userId;
     }
 
@@ -55,6 +57,15 @@ public class Blog{
     public void setContent(String content) {
         this.content = content;
     }
+
+    public Date getPubDate() {
+        return PubDate;
+    }
+
+    public void setPubDate(Date pubDate) {
+        PubDate = pubDate;
+    }
+
     public ArrayList<Integer> getImageList() {
         return arr;
     }
