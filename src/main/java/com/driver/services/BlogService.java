@@ -26,7 +26,7 @@ public class BlogService {
     public Blog createAndReturnBlog(Integer userId, String title, String content) {
         Blog obj=new Blog(userId,title,content);
         User x= userRepository1.findById(userId).orElse(null);
-        x.setArr(obj.getId());
+        x.setBlogList(obj.getId());
         userRepository1.deleteById(userId);
         userRepository1.save(x);
         blogRepository1.save(obj);
@@ -38,7 +38,7 @@ public class BlogService {
 
     public void deleteBlog(int blogId){
         Blog x= blogRepository1.findById(blogId).orElse(null);
-        ArrayList<Integer> arr=x.getArr();
+        ArrayList<Integer> arr=x.getImageList();
         for(int i=0;i<arr.size();i++)
         {
             ir.deleteImage(arr.get(i));

@@ -55,11 +55,11 @@ public class Blog{
     public void setContent(String content) {
         this.content = content;
     }
-    public ArrayList<Integer> getArr() {
+    public ArrayList<Integer> getImageList() {
         return arr;
     }
 
-    public void setArr(int x) {
+    public void setImageList(int x) {
         this.arr.add(x);
     }
 }

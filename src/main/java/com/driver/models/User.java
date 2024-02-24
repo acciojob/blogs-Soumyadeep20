@@ -48,11 +48,11 @@ public class User{
         this.password = password;
     }
 
-    public ArrayList<Integer> getArr() {
+    public ArrayList<Integer> getBlogList() {
         return arr;
     }
 
-    public void setArr(int x) {
+    public void setBlogList(int x) {
         this.arr.add(x);
     }
 }
