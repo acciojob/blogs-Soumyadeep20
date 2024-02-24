@@ -14,7 +14,9 @@ public class Image{
     String description;
     String dimension;
 
+    public Image(){
 
+    }
     public Image(int blogid, String description, String dimension) {
         this.id=(int)Math.random();
         this.blogid = blogid;

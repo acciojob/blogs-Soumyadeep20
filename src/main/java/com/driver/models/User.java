@@ -13,6 +13,10 @@ public class User{
     String ussername;
     String password;
     ArrayList<Integer> arr;
+    public  User()
+    {
+        arr=new ArrayList<>();
+    }
     public User(String x, String y){
         id= (int)Math.random();
         ussername=x;

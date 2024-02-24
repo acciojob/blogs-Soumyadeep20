@@ -13,7 +13,9 @@ public class Blog{
     String content;
     ArrayList<Integer> arr;
 
-
+    public Blog(){
+        arr=new ArrayList<>();
+    }
     public Blog(Integer userId, String title, String content) {
         this.content=content;
         this.title=title;
