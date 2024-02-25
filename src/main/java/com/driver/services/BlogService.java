@@ -4,14 +4,11 @@ import com.driver.models.Blog;
 import com.driver.models.Image;
 import com.driver.models.User;
 import com.driver.repositories.BlogRepository;
-import com.driver.repositories.ImageRepository;
 import com.driver.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 @Service
 public class BlogService {
@@ -24,9 +21,10 @@ public class BlogService {
     ImageService ir;
 
     public Blog createAndReturnBlog(Integer userId, String title, String content) {
-        Blog obj=new Blog(userId,title,content);
+        Blog obj=new Blog(title,content);
         User x= userRepository1.findById(userId).orElse(null);
-        x.setBlogList(obj.getId());
+        obj.setUser(x);
+        x.setBlogList(obj);
         userRepository1.deleteById(userId);
         userRepository1.save(x);
         blogRepository1.save(obj);
@@ -38,10 +36,10 @@ public class BlogService {
 
     public void deleteBlog(int blogId){
         Blog x= blogRepository1.findById(blogId).orElse(null);
-        ArrayList<Integer> arr=x.getImageList();
+        ArrayList<Image> arr=x.getImageList();
         for(int i=0;i<arr.size();i++)
         {
-            ir.deleteImage(arr.get(i));
+            ir.deleteImage(arr.get(i).getId());
         }
         blogRepository1.deleteById(blogId);
 

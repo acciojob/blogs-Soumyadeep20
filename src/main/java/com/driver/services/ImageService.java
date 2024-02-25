@@ -16,10 +16,11 @@ public class ImageService {
     ImageRepository imageRepository2;
 
     public Image addImage(Integer blogId, String description, String dimensions){
-        Image obj=new Image(blogId,description,dimensions);
+        Image obj=new Image(description,dimensions);
+        obj.setBlog(blogRepository2.findById(blogId).orElse(null));
         imageRepository2.save(obj);
         Blog x= blogRepository2.findById(blogId).orElse(null);
-        x.setImageList(obj.getId());
+        x.setImageList(obj);
         blogRepository2.deleteById(blogId);
         blogRepository2.save(x);
         return obj;

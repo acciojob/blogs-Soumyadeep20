@@ -26,10 +26,10 @@ public class UserService {
 
     public void deleteUser(int userId){
         User obj=userRepository3.findById(userId).orElse(null);
-        ArrayList<Integer> arr=obj.getBlogList();
+        ArrayList<Blog> arr=obj.getBlogList();
         for(int i=0;i<arr.size();i++)
         {
-            bs.deleteBlog(arr.get(i));
+            bs.deleteBlog(arr.get(i).getId());
         }
         userRepository3.deleteById(userId);
 

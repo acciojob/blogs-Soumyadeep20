@@ -9,16 +9,15 @@ public class Image{
     int id;
     @JoinColumn
     @ManyToOne
-    int blogid;
+    Blog blog;
     String description;
     String dimension;
 
     public Image(){
 
     }
-    public Image(int blogid, String description, String dimension) {
+    public Image( String description, String dimension) {
         this.id=(int)Math.random();
-        this.blogid = blogid;
         this.description = description;
         this.dimension = dimension;
     }
@@ -31,12 +30,12 @@ public class Image{
         this.id = id;
     }
 
-    public int getBlog() {
-        return blogid;
+    public Blog getBlog() {
+        return blog;
     }
 
-    public void setBlog(int blogid) {
-        this.blogid = blogid;
+    public void setBlog(Blog blog) {
+        this.blog = blog;
     }
 
     public String getDescription() {

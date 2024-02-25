@@ -1,8 +1,5 @@
 package com.driver.models;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 
 @Entity
@@ -11,10 +8,12 @@ public class Blog{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
-    int userid;
+    @ManyToOne
+    User user;
     String title;
     String content;
-    ArrayList<Integer>imageList;
+    @OneToMany(mappedBy = "blog")
+    ArrayList<Image>imageList;
 
     public int getId() {
         return id;
@@ -24,12 +23,12 @@ public class Blog{
         this.id = id;
     }
 
-    public int getUserid() {
-        return userid;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getTitle() {
@@ -48,18 +47,17 @@ public class Blog{
         this.content = content;
     }
 
-    public ArrayList<Integer> getImageList() {
+    public ArrayList<Image> getImageList() {
         return imageList;
     }
 
-    public void setImageList(int x) {
+    public void setImageList(Image x) {
         this.imageList.add(x);
     }
 
-    public Blog(Integer userId, String title, String content) {
+    public Blog(String title, String content) {
         this.content=content;
         this.title=title;
-        this.userid=userId;
         imageList=new ArrayList<>();
     }
 }

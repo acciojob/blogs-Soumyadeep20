@@ -1,8 +1,5 @@
 package com.driver.models;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 
 @Entity
@@ -12,7 +9,8 @@ public class User{
     int id;
     String ussername;
     String password;
-    ArrayList<Integer> arr;
+    @OneToMany(mappedBy = "user")
+    ArrayList<Blog> arr;
     public User(){
 
     }
@@ -47,11 +45,11 @@ public class User{
         this.password = password;
     }
 
-    public ArrayList<Integer> getBlogList() {
+    public ArrayList<Blog> getBlogList() {
         return arr;
     }
 
-    public void setBlogList(int x) {
+    public void setBlogList(Blog x) {
         this.arr.add(x);
     }
 }
