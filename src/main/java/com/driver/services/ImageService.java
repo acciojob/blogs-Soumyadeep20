@@ -18,9 +18,10 @@ public class ImageService {
 
     public Image addImage(Integer blogId, String description, String dimensions){
         Image obj=new Image(description,dimensions);
-        obj.setBlog(blogRepository2.findById(blogId).orElse(null));
-        if(obj==null)
+        Blog m=blogRepository2.findById(blogId).orElse(null);
+        if(m==null)
             return null;
+        obj.setBlog(m);
         imageRepository2.save(obj);
         Blog x= blogRepository2.findById(blogId).orElse(null);
         if(x==null)
@@ -64,8 +65,8 @@ public class ImageService {
         String  arr2[]=(screenDimensions.split("X",2));
         int b=Integer.parseInt(arr2[0])*Integer.parseInt(arr2[1]);
         int c=0;
-       // if(a!=0)
-         //   c=b/a;
+       if(a!=0)
+          c=b/a;
 
 
         //Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
