@@ -19,8 +19,12 @@ public class ImageService {
     public Image addImage(Integer blogId, String description, String dimensions){
         Image obj=new Image(description,dimensions);
         obj.setBlog(blogRepository2.findById(blogId).orElse(null));
+        if(obj==null)
+            return null;
         imageRepository2.save(obj);
         Blog x= blogRepository2.findById(blogId).orElse(null);
+        if(x==null)
+            return null;
         List<Image> arr=x.getImageList();
         arr.add(obj);
         x.setImageList(arr);
@@ -33,6 +37,8 @@ public class ImageService {
 
     public void deleteImage(Integer id){
         Image x=imageRepository2.findById(id).orElse(null);
+        if(x==null)
+            return;
         Blog b=x.getBlog();
         List<Image> arr1=b.getImageList();
         for(int i=0;i<arr1.size();i++)
@@ -41,7 +47,7 @@ public class ImageService {
                 arr1.remove(i);
         }
         b.setImageList(arr1);
-        blogRepository2.deleteById(x.getBlog().getId());
+        blogRepository2.deleteById(b.getId());
 
         blogRepository2.save(b);
 
@@ -51,9 +57,11 @@ public class ImageService {
 
     public int countImagesInScreen(Integer id, String screenDimensions) {
         Image x=imageRepository2.findById(id).orElse(null);
-        String  arr[]=(x.getDimensions().split("x"));
+        if(x==null)
+            return 0;
+        String  arr[]=(x.getDimensions().split("x",2));
         int a=Integer.parseInt(arr[0])*Integer.parseInt(arr[1]);
-        String  arr2[]=(screenDimensions.split("x"));
+        String  arr2[]=(screenDimensions.split("x",2));
         int b=Integer.parseInt(arr2[0])*Integer.parseInt(arr2[1]);
         int c=0;
        // if(a!=0)

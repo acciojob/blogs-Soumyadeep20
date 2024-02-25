@@ -26,6 +26,8 @@ public class UserService {
 
     public void deleteUser(int userId){
         User obj=userRepository3.findById(userId).orElse(null);
+        if(obj==null)
+            return ;
         List<Blog> arr=obj.getBlogList();
         for(int i=0;i<arr.size();i++)
         {
@@ -37,6 +39,8 @@ public class UserService {
 
     public User updateUser(Integer id, String password){
         User obj=userRepository3.findById(id).orElse(null);
+        if(obj==null)
+            return null;
         userRepository3.deleteById(id);
         obj.setPassword(password);
         userRepository3.save(obj);

@@ -41,6 +41,8 @@ public class BlogService {
 
     public void deleteBlog(int blogId){
         Blog x= blogRepository1.findById(blogId).orElse(null);
+        if(x==null)
+            return;
 
         List<Image> arr=x.getImageList();
         for(int i=0;i<arr.size();i++)
@@ -48,6 +50,8 @@ public class BlogService {
             ir.deleteImage(arr.get(i).getId());
         }
         User us=userRepository1.findById(x.getUser().getId()).orElse(null);
+        if(us==null)
+            return;
         List<Blog> arr1=us.getBlogList();
         for(int i=0;i<arr1.size();i++)
         {
