@@ -21,6 +21,12 @@ public class User{
         arr=new ArrayList<>();
     }
 
+    public User(Integer userId) {
+        arr=new ArrayList<>();
+        id=userId;
+
+    }
+
     public int getId() {
         return id;
     }
