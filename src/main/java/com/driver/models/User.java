@@ -7,6 +7,7 @@ import java.util.List;
 
 public class User{
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
     String ussername;
     String password;
@@ -16,8 +17,6 @@ public class User{
 
     }
     public User(String x, String y){
-        this.id=(int)(Math.random()*10000)+(int)(Math.random()*10000)+(int)(Math.random()*10000);
-
         ussername=x;
         password=y;
         arr=new ArrayList<>();
