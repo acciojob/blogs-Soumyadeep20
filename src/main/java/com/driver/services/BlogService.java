@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class BlogService {
@@ -36,7 +37,7 @@ public class BlogService {
 
     public void deleteBlog(int blogId){
         Blog x= blogRepository1.findById(blogId).orElse(null);
-        ArrayList<Image> arr=x.getImageList();
+        List<Image> arr=x.getImageList();
         for(int i=0;i<arr.size();i++)
         {
             ir.deleteImage(arr.get(i).getId());

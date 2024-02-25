@@ -2,6 +2,7 @@ package com.driver.models;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 
@@ -15,7 +16,7 @@ public class Blog{
     String content;
     Date pub;
     @OneToMany(mappedBy = "blog")
-    ArrayList<Image>imageList;
+    List<Image>imageList;
 
     public int getId() {
         return id;
@@ -49,7 +50,7 @@ public class Blog{
         this.content = content;
     }
 
-    public ArrayList<Image> getImageList() {
+    public List<Image> getImageList() {
         return imageList;
     }
 
