@@ -39,11 +39,24 @@ public class BlogService {
 
     public void deleteBlog(int blogId){
         Blog x= blogRepository1.findById(blogId).orElse(null);
+        if(x==null)
+            return;
         List<Image> arr=x.getImageList();
         for(int i=0;i<arr.size();i++)
         {
             ir.deleteImage(arr.get(i).getId());
         }
+        User us=userRepository1.findById(x.getUser().getId()).orElse(null);
+        List<Blog> arr1=us.getBlogList();
+        for(int i=0;i<arr1.size();i++)
+        {
+            if(arr1.get(i)==x)
+                arr1.remove(i);
+        }
+        userRepository1.deleteById(x.getUser().getId());
+
+        userRepository1.save(us);
+
         blogRepository1.deleteById(blogId);
 
         //delete blog and corresponding images

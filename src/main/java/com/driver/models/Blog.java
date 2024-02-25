@@ -67,6 +67,7 @@ public class Blog{
     }
 
     public Blog() {
+        imageList=new ArrayList<>();
     }
 
     public Blog(String title, String content) {
