@@ -13,7 +13,7 @@ public class User{
     String password;
     List<Blog> arr;
     public User(){
-
+        arr=new ArrayList<>();
     }
     public User(String x, String y){
         ussername=x;
@@ -49,7 +49,7 @@ public class User{
         return arr;
     }
 
-    public void setBlogList(Blog x) {
-        this.arr.add(x);
+    public void setBlogList(List<Blog> x) {
+        this.arr=x;
     }
 }

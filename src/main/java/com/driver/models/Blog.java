@@ -54,8 +54,8 @@ public class Blog{
         return imageList;
     }
 
-    public void setImageList(Image x) {
-        this.imageList.add(x);
+    public void setImageList(List<Image> x) {
+        this.imageList=x;
     }
 
     public Date getPubDate() {

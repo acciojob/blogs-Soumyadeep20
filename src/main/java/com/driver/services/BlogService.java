@@ -25,7 +25,9 @@ public class BlogService {
         Blog obj=new Blog(title,content);
         User x= userRepository1.findById(userId).orElse(null);
         obj.setUser(x);
-        x.setBlogList(obj);
+        List<Blog> arr=x.getBlogList();
+        arr.add(obj);
+        x.setBlogList(arr);
         userRepository1.deleteById(userId);
         userRepository1.save(x);
         blogRepository1.save(obj);

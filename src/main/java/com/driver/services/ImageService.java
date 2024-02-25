@@ -20,7 +20,9 @@ public class ImageService {
         obj.setBlog(blogRepository2.findById(blogId).orElse(null));
         imageRepository2.save(obj);
         Blog x= blogRepository2.findById(blogId).orElse(null);
-        x.setImageList(obj);
+        List<Image> arr=x.getImageList();
+        arr.add(obj);
+        x.setImageList(arr);
         blogRepository2.deleteById(blogId);
         blogRepository2.save(x);
         return obj;
