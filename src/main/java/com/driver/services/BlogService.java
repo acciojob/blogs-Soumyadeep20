@@ -23,7 +23,11 @@ public class BlogService {
 
     public Blog createAndReturnBlog(Integer userId, String title, String content) {
         Blog obj=new Blog(title,content);
-        User x= userRepository1.findById(userId).orElse(new User(userId));
+        User x= userRepository1.findById(userId).orElse(null);
+        if(x==null) {
+            x = new User(userId);
+            userRepository1.save(x);
+        }
 
         obj.setUser(x);
         List<Blog> arr=x.getBlogList();
