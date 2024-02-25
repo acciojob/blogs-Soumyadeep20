@@ -39,8 +39,7 @@ public class BlogService {
 
     public void deleteBlog(int blogId){
         Blog x= blogRepository1.findById(blogId).orElse(null);
-        if(x==null)
-            return;
+        
         List<Image> arr=x.getImageList();
         for(int i=0;i<arr.size();i++)
         {
