@@ -56,8 +56,8 @@ public class ImageService {
         String  arr2[]=(screenDimensions.split("x"));
         int b=Integer.parseInt(arr2[0])*Integer.parseInt(arr2[1]);
         int c=0;
-        if(a!=0)
-            c=b/a;
+       // if(a!=0)
+         //   c=b/a;
 
 
         //Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
