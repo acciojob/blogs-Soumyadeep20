@@ -7,8 +7,6 @@ public class Image{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
-    @JoinColumn
-    @ManyToOne
     Blog blog;
     String description;
     String dimension;

@@ -11,7 +11,6 @@ public class User{
     int id;
     String ussername;
     String password;
-    @OneToMany(mappedBy = "user")
     List<Blog> arr;
     public User(){
 

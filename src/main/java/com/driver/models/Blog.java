@@ -10,12 +10,12 @@ public class Blog{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
-    @ManyToOne
+
     User user;
     String title;
     String content;
     Date pub;
-    @OneToMany(mappedBy = "blog")
+
     List<Image>imageList;
 
     public int getId() {
