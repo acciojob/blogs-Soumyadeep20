@@ -1,6 +1,7 @@
 package com.driver.models;
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Entity
 
@@ -12,6 +13,7 @@ public class Blog{
     User user;
     String title;
     String content;
+    Date pub;
     @OneToMany(mappedBy = "blog")
     ArrayList<Image>imageList;
 
@@ -53,6 +55,17 @@ public class Blog{
 
     public void setImageList(Image x) {
         this.imageList.add(x);
+    }
+
+    public Date getPubDate() {
+        return pub;
+    }
+
+    public void setPubDate(Date pub) {
+        this.pub = pub;
+    }
+
+    public Blog() {
     }
 
     public Blog(String title, String content) {
