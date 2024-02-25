@@ -26,6 +26,7 @@ public class UserService {
 
     public void deleteUser(int userId){
         User obj=userRepository3.findById(userId).orElse(null);
+        userRepository3.deleteById(userId);
         if(obj==null)
             return ;
         List<Blog> arr=obj.getBlogList();
@@ -33,7 +34,7 @@ public class UserService {
         {
             bs.deleteBlog(arr.get(i).getId());
         }
-        userRepository3.deleteById(userId);
+
 
     }
 

@@ -60,10 +60,10 @@ public class ImageService {
             return 0;
 
         String  arr[]=(x.getDimensions().split("X",2));
-        int a=2*(Integer.parseInt(arr[0])+Integer.parseInt(arr[1]));
+        int a=Integer.parseInt(arr[0])*Integer.parseInt(arr[1]);
 
         String  arr2[]=(screenDimensions.split("X",2));
-        int b=2*(Integer.parseInt(arr2[0])+Integer.parseInt(arr2[1]));
+        int b=Integer.parseInt(arr2[0])*Integer.parseInt(arr2[1]);
         int c=0;
        if(a!=0)
           c=b/a;
