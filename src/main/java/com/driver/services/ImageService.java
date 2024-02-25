@@ -59,9 +59,9 @@ public class ImageService {
         Image x=imageRepository2.findById(id).orElse(null);
         if(x==null)
             return 0;
-        String  arr[]=(x.getDimensions().split("x",2));
+        String  arr[]=(x.getDimensions().split("X",2));
         int a=Integer.parseInt(arr[0])*Integer.parseInt(arr[1]);
-        String  arr2[]=(screenDimensions.split("x",2));
+        String  arr2[]=(screenDimensions.split("X",2));
         int b=Integer.parseInt(arr2[0])*Integer.parseInt(arr2[1]);
         int c=0;
        // if(a!=0)
