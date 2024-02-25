@@ -46,9 +46,8 @@ public class BlogService {
 
         List<Image> arr=x.getImageList();
         for(int i=0;i<arr.size();i++)
-        {
             ir.deleteImage(arr.get(i).getId());
-        }
+
         User us=userRepository1.findById(x.getUser().getId()).orElse(null);
         if(us==null)
             return;

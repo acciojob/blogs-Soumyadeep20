@@ -22,15 +22,13 @@ public class ImageService {
         if(m==null)
             return null;
         obj.setBlog(m);
-        imageRepository2.save(obj);
-        Blog x= blogRepository2.findById(blogId).orElse(null);
-        if(x==null)
-            return null;
-        List<Image> arr=x.getImageList();
+
+        List<Image> arr=m.getImageList();
         arr.add(obj);
-        x.setImageList(arr);
+        m.setImageList(arr);
         blogRepository2.deleteById(blogId);
-        blogRepository2.save(x);
+        blogRepository2.save(m);
+        imageRepository2.save(obj);
         return obj;
         //add an image to the blog
 
@@ -60,10 +58,12 @@ public class ImageService {
         Image x=imageRepository2.findById(id).orElse(null);
         if(x==null)
             return 0;
+
         String  arr[]=(x.getDimensions().split("X",2));
-        int a=Integer.parseInt(arr[0])*Integer.parseInt(arr[1]);
+        int a=2*(Integer.parseInt(arr[0])+Integer.parseInt(arr[1]));
+
         String  arr2[]=(screenDimensions.split("X",2));
-        int b=Integer.parseInt(arr2[0])*Integer.parseInt(arr2[1]);
+        int b=2*(Integer.parseInt(arr2[0])+Integer.parseInt(arr2[1]));
         int c=0;
        if(a!=0)
           c=b/a;
