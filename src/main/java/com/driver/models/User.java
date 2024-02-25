@@ -16,7 +16,8 @@ public class User{
 
     }
     public User(String x, String y){
-        id= (int)Math.random();
+        this.id=(int)(Math.random()*10000);
+
         ussername=x;
         password=y;
         arr=new ArrayList<>();

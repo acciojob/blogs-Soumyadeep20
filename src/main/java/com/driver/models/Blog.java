@@ -72,6 +72,7 @@ public class Blog{
     public Blog(String title, String content) {
         this.content=content;
         this.title=title;
+        this.id=(int)(Math.random()*10000);
         imageList=new ArrayList<>();
     }
 }

@@ -17,7 +17,7 @@ public class Image{
 
     }
     public Image( String description, String dimension) {
-        this.id=(int)Math.random();
+        this.id=(int)(Math.random()*10000);
         this.description = description;
         this.dimension = dimension;
     }
