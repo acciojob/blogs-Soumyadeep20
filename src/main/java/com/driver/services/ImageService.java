@@ -26,9 +26,9 @@ public class ImageService {
         List<Image> arr=m.getImageList();
         arr.add(obj);
         m.setImageList(arr);
-        blogRepository2.deleteById(blogId);
+
         blogRepository2.save(m);
-        imageRepository2.save(obj);
+
         return obj;
         //add an image to the blog
 
@@ -38,18 +38,6 @@ public class ImageService {
         Image x=imageRepository2.findById(id).orElse(null);
         if(x==null)
             return;
-        Blog b=x.getBlog();
-        List<Image> arr1=b.getImageList();
-        for(int i=0;i<arr1.size();i++)
-        {
-            if(arr1.get(i)==x)
-                arr1.remove(i);
-        }
-        b.setImageList(arr1);
-        blogRepository2.deleteById(b.getId());
-
-        blogRepository2.save(b);
-
         imageRepository2.deleteById(id);
 
     }

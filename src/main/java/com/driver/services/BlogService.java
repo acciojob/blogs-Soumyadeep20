@@ -33,9 +33,7 @@ public class BlogService {
         List<Blog> arr=x.getBlogList();
         arr.add(obj);
         x.setBlogList(arr);
-        userRepository1.deleteById(userId);
-        userRepository1.save(x);
-        blogRepository1.save(obj);
+       userRepository1.save(x);
 
         return obj;
         //create a blog at the current time
@@ -46,25 +44,6 @@ public class BlogService {
         Blog x= blogRepository1.findById(blogId).orElse(null);
         if(x==null)
             return;
-
-        List<Image> arr=x.getImageList();
-        for(int i=0;i<arr.size();i++)
-            ir.deleteImage(arr.get(i).getId());
-
-        User us=userRepository1.findById(x.getUser().getId()).orElse(null);
-        if(us==null)
-            return;
-        List<Blog> arr1=us.getBlogList();
-        for(int i=0;i<arr1.size();i++)
-        {
-            if(arr1.get(i)==x)
-                arr1.remove(i);
-        }
-        us.setBlogList(arr1);
-        userRepository1.deleteById(x.getUser().getId());
-
-        userRepository1.save(us);
-
         blogRepository1.deleteById(blogId);
 
         //delete blog and corresponding images

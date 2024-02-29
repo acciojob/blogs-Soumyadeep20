@@ -10,12 +10,13 @@ public class Blog{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
-
+    @JoinColumn
+    @ManyToOne
     User user;
     String title;
     String content;
     Date pub;
-
+    @OneToMany(mappedBy = "blog",cascade = CascadeType.ALL)
     List<Image>imageList;
 
     public int getId() {

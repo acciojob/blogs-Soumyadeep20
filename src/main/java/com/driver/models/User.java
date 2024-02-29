@@ -11,6 +11,7 @@ public class User{
     int id;
     String ussername;
     String password;
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     List<Blog> arr;
     public User(){
         arr=new ArrayList<>();

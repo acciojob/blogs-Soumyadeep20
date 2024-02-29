@@ -25,15 +25,9 @@ public class UserService {
     }
 
     public void deleteUser(int userId){
-        User obj=userRepository3.findById(userId).orElse(null);
+
         userRepository3.deleteById(userId);
-        if(obj==null)
-            return ;
-        List<Blog> arr=obj.getBlogList();
-        for(int i=0;i<arr.size();i++)
-        {
-            bs.deleteBlog(arr.get(i).getId());
-        }
+
 
 
     }
@@ -42,7 +36,6 @@ public class UserService {
         User obj=userRepository3.findById(id).orElse(null);
         if(obj==null)
             return null;
-        userRepository3.deleteById(id);
         obj.setPassword(password);
         userRepository3.save(obj);
         return obj;
