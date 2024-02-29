@@ -38,9 +38,7 @@ public class BlogService {
     }
 
     public void deleteBlog(int blogId){
-        Blog x= blogRepository1.findById(blogId).orElse(null);
-        if(x==null)
-            return;
+
         blogRepository1.deleteById(blogId);
 
         //delete blog and corresponding images
