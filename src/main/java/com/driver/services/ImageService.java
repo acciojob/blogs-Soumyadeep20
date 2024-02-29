@@ -51,7 +51,7 @@ public class ImageService {
         int b=Integer.parseInt(arr2[0])*Integer.parseInt(arr2[1]);
         int c=0;
        if(a!=0)
-          c=b/a;
+          c=(int)(((double)Integer.parseInt(arr2[0])/(double)Integer.parseInt(arr[0]))*((double)Integer.parseInt(arr2[1])/(double)Integer.parseInt(arr[1])));
 
 
         //Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
