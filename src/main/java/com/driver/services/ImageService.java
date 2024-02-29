@@ -45,13 +45,11 @@ public class ImageService {
             return 0;
 
         String  arr[]=(x.getDimensions().split("X",2));
-        int a=Integer.parseInt(arr[0])*Integer.parseInt(arr[1]);
+
 
         String  arr2[]=(screenDimensions.split("X",2));
-        int b=Integer.parseInt(arr2[0])*Integer.parseInt(arr2[1]);
-        int c=0;
-       if(a!=0)
-          c=(int)(((double)Integer.parseInt(arr2[0])/(double)Integer.parseInt(arr[0]))*((double)Integer.parseInt(arr2[1])/(double)Integer.parseInt(arr[1])));
+
+        int c=(int)(Math.floor((double)Integer.parseInt(arr2[0])/(double)Integer.parseInt(arr[0]))*Math.floor((double)Integer.parseInt(arr2[1])/(double)Integer.parseInt(arr[1])));
 
 
         //Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
