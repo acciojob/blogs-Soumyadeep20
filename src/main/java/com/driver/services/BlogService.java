@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -23,16 +24,12 @@ public class BlogService {
 
     public Blog createAndReturnBlog(Integer userId, String title, String content) {
         Blog obj=new Blog(title,content);
-        User x= userRepository1.findById(userId).orElse(null);
-        if(x==null) {
-            x = new User(userId);
-            userRepository1.save(x);
-        }
-
+        User x= userRepository1.findById(userId).get();
+        obj.setPubDate(new Date());
         obj.setUser(x);
         List<Blog> arr=x.getBlogList();
         arr.add(obj);
-        x.setBlogList(arr);
+        //x.setBlogList(arr);
        userRepository1.save(x);
 
         return obj;
